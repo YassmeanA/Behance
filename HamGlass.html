@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Hamburger Menu Design - Glass Morphism Effect</title>
+    
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+:root {
+--primary:white;
+--Background:rgba(255,255,255,0.3);}
+
+body {
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Montserrat", sans-serif;
+font-optical-sizing: auto;
+font-weight:weight;
+font-style:normal;
+transition:0.4s;
+user-select:none;}
+
+.Body {
+position:fixed;
+top:0;
+width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background-image:url("GLASS.svg");
+background-size:cover;}
+
+.slide {
+height:70vh;
+width:80vw;
+position:absolute;
+top:500px;
+display:flex;
+justify-content:center;
+align-items:center;
+color:rgba(0,0,0,0.5);
+box-shadow:1px 4.5px 12px currentcolor;
+opacity:10%;
+border-radius:20px;
+background:white;}
+
+.content {
+position:absolute;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+width:100%;
+height:2000px;}
+
+.frame, .account-settings {
+position:fixed;
+bottom:0;
+left:0;
+justify-content:center;
+width:100%;
+height:100%;
+overflow-x:hidden;
+overflow-y:auto;
+display:none;}
+
+.frame.S, .account-settings {
+z-index:2;
+display:flex;
+left:100vw;
+transition:0.3s;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);}
+
+.frame.S.active, .account-settings.active {
+left:0;}
+
+.frame.active {
+display:flex;
+left:0;}
+
+.side-navbar::-webkit-scrollbar {
+width:6px;}
+
+.side-navbar::-webkit-scrollbar-track {
+background:transparent;}
+
+.side-navbar::-webkit-scrollbar-thumb {
+border-radius:3px;
+background:rgba(255,255,255,0.3);}
+
+.frame::-webkit-scrollbar, .account-settings::-webkit-scrollbar {
+width:10px;}
+
+.frame::-webkit-scrollbar-thumb, .account-settings::-webkit-scrollbar-thumb {
+background:var(--Background);
+border-radius:5px;}
+
+.Body.touch .frame::-webkit-scrollbar, .Body.touch .frame.S::-webkit-scrollbar, .Body.touch .side-navbar::-webkit-scrollbar, .Body.touch .account-settings::-webkit-scrollbar {
+display:none;}
+
+.Body.mouse .frame::-webkit-scrollbar, .Body.mouse .frame.S::-webkit-scrollbar, .Body.mouse .side-navbar::-webkit-scrollbar, .Body.mouse .account-settings::-webkit-scrollbar {
+display:flex;}
+
+.Header {
+position:fixed;
+top:0;
+width:100%;
+height:55px;}
+
+.account-settings .Header {
+position:sticky;}
+
+.back {
+position:absolute;
+top:10px;
+left:10px;
+border-radius:9px;
+cursor:pointer;
+background:rgba(255,255,255,0.2);
+box-shadow:1px 4.5px 12px rgba(0,0,0,0.1);}
+
+.Ham {
+position:absolute;
+top:10px;
+left:10px;
+cursor:pointer;}
+
+.Cross {
+position:absolute;
+top:10px;
+right:10px;
+cursor:pointer;
+width:25px;
+height:35px;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+outline:1px solid rgba(255,255,255,0.4);}
+
+.side-navbar {
+position:fixed;
+top:0;
+left:-261px;
+width:261px;
+height:100%;
+direction:rtl;
+overflow-x:hidden;
+overflow-y:auto;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.navbar-container {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+direction:ltr;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:0 20px 20px 0;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+border:1px solid rgba(252,252,252,0.4);}
+
+.side-navbar.active {
+left:-1px;}
+
+.item-list {
+position:absolute;
+top:160px;
+width:220px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:20px;
+list-style:none;
+pointer-events:none;}
+
+.item {
+position:relative;
+width:100%;
+height:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+pointer-events:auto;
+cursor:pointer;}
+
+.item .icon {
+position:absolute;
+width:40px;
+height:40px;
+opacity:0.5;
+left:0;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.item .icon img {
+position:absolute;
+top:-17px;
+opacity:0;}
+
+.icon svg, .back svg, .settings svg {
+fill:var(--primary);}
+
+.item .Text {
+position:absolute;
+left:50px;
+width:120px;
+font-size:0.6rem;
+color:var(--primary);
+opacity:0.5;}
+
+.item.active .icon, .item.active .icon img, .item.active .Text {
+opacity:1;}
+
+.account {
+position:absolute;
+width:220px;
+bottom:20px;
+height:90px;
+border-radius:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+outline:1px solid rgba(255,255,255,0.4);
+background:linear-gradient(to bottom right, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.05) 75%);}
+
+.info-container {
+position:absolute;
+width:180px;
+height:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;}
+
+.account .container {
+position:absolute;
+left:0;
+width:40px;
+height:40px;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.account .settings {
+position:absolute;
+top:5px;
+right:5px;
+width:30px;
+height:30px;
+cursor:pointer;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.account .settings .circle {
+position:absolute;
+width:25px;
+height:25px;
+border-radius:50%;
+opacity:0;
+transform:scale(0.5);
+background:rgba(255,255,255,0.2);}
+
+.account .settings .circle.active {
+animation:Circle 0.6s;}
+
+@keyframes Circle {
+0%{opacity:0;transform:scale(0.5);}
+50%{opacity:1;transform:scale(1);}
+100%{opacity:0;transform:scale(0.5);}}
+
+.account .container .glass {
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+background:linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 75%);}
+
+.account .container img {
+position:absolute;
+width:95%;
+height:95%;
+border-radius:50%;
+object-fit:cover;}
+
+.account .container .Active {
+position:absolute;
+bottom:2px;
+right:2px;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#4abf02;}
+
+.account .account-info {
+position:absolute;
+left:50px;
+width:140px;
+height:80%;
+overflow:hidden;}
+
+.account .account-info h3 {
+position:absolute;
+top:0;
+font-weight:700;
+font-size:0.7rem;
+color:var(--primary);
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+max-width:95%;}
+
+.account .account-info span {
+position:absolute;
+bottom:0;
+font-size:0.5rem;
+font-weight:300;
+color:var(--primary);
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+max-width:95%;}
+
+.search {
+position:absolute;
+top:90px;
+height:35px;
+width:220px;}
+
+.input::placeholder {
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+color:rgba(255,255,255,0.7);
+font-weight:400;
+font-size:0.6rem;}
+
+.input:focus::placeholder {
+color:transparent;}
+
+.input {
+position:absolute;
+width:100%;
+height:100%;
+color:white;
+caret-color:white;
+pointer-events:auto;
+cursor:pointer;
+font-weight:400;
+font-size:0.6rem;
+border-radius:10px;
+padding-left:35px;
+background:var(--background);
+border:1px solid rgba(255,255,255,0.5);}
+
+.input:focus {
+outline:none;}
+
+@media screen and (max-height:670px) {
+
+.navbar-container {
+position:absolute;
+height:668px;}
+
+}
+
+@media screen and (min-height:670px) {
+
+.navbar-container {
+position:absolute;
+height:calc(100% - 2px);}
+
+}
+
+
+</style>
+
+<body>
+
+<div class="Body">
+
+<!-- Pages of item btns -->
+
+<div class="frame N active">
+<div class="content">
+<div class="slide"><h1>Home</h1></div>
+</div>
+</div>
+
+<div class="frame N">
+<div class="content">
+<div class="slide"><h1>Training</h1></div>
+</div>
+</div>
+
+<div class="frame N">
+<div class="content">
+<div class="slide"><h1>Dashboard</h1></div>
+</div>
+</div>
+
+<div class="frame N">
+<div class="content">
+<div class="slide"><h1>Email</h1></div>
+</div>
+</div>
+
+<div class="frame N">
+<div class="content">
+<div class="slide"><h1>Favourites</h1></div>
+</div>
+</div>
+
+<div class="frame N">
+<div class="content">
+<div class="slide"><h1>Settings</h1></div>
+</div>
+</div>
+
+<div class="account-settings">
+<div class="content">
+<div class="slide"><h1>Account</h1></div>
+</div>
+<div class="Header">
+<svg class="back Back" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 22L12 17L17 12M12.6944 17H22.8333" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+</div>
+
+<div class="Header">
+<svg class="Ham" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.43555 24H27.5332M7.43555 17H27.5332M7.43555 10H27.5332" stroke="white" stroke-width="2.87109" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+
+
+<!-- SideNavbar -->
+
+<div class="side-navbar">
+
+<div class="navbar-container">
+
+<div class="item search">
+<input class="input" placeholder="Search">
+<svg style="position:absolute;left:2.5px;pointer-events:none;" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 22L18.6221 18.6221M18.6221 18.6221C19.1999 18.0444 19.6583 17.3584 19.971 16.6035C20.2837 15.8486 20.4446 15.0394 20.4446 14.2223C20.4446 13.4052 20.2837 12.5961 19.971 11.8411C19.6583 11.0862 19.1999 10.4003 18.6221 9.82247C18.0444 9.24468 17.3584 8.78635 16.6035 8.47365C15.8486 8.16094 15.0394 8 14.2223 8C13.4052 8 12.5961 8.16094 11.8411 8.47365C11.0862 8.78635 10.4003 9.24468 9.82247 9.82247C8.65556 10.9894 8 12.5721 8 14.2223C8 15.8726 8.65556 17.4552 9.82247 18.6221C10.9894 19.7891 12.5721 20.4446 14.2223 20.4446C15.8726 20.4446 17.4552 19.7891 18.6221 18.6221Z" stroke="rgba(255,255,255,0.5)" stroke-width="1.94442" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+
+<ul class="item-list">
+
+<li class="item N active">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 12.8958C20.7115 12.6795 20.3606 12.5625 20 12.5625C19.6394 12.5625 19.2885 12.6795 19 12.8958L13.1667 17.2708C12.9597 17.4261 12.7917 17.6274 12.676 17.8588C12.5602 18.0902 12.5 18.3454 12.5 18.6042V26.5208C12.5 26.9629 12.6756 27.3868 12.9882 27.6993C13.3007 28.0119 13.7246 28.1875 14.1667 28.1875H17.4167C17.6598 28.1875 17.8929 28.0909 18.0648 27.919C18.2368 27.7471 18.3333 27.5139 18.3333 27.2708V23.1875C18.3333 22.7455 18.5089 22.3215 18.8215 22.009C19.134 21.6964 19.558 21.5208 20 21.5208C20.442 21.5208 20.866 21.6964 21.1785 22.009C21.4911 22.3215 21.6667 22.7455 21.6667 23.1875V27.2708C21.6667 27.5139 21.7632 27.7471 21.9352 27.919C22.1071 28.0909 22.3402 28.1875 22.5833 28.1875H25.8333C26.2754 28.1875 26.6993 28.0119 27.0118 27.6993C27.3244 27.3868 27.5 26.9629 27.5 26.5208V18.6042C27.5 18.3454 27.4398 18.0902 27.324 17.8588C27.2083 17.6274 27.0403 17.4261 26.8333 17.2708L21 12.8958Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Home</span>
+</li>
+
+<li class="item N">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.2267 12.6323C20.0866 12.5505 19.9134 12.5505 19.7733 12.6323L11.6663 17.3613C11.3687 17.5349 11.3687 17.9651 11.6663 18.1387L19.7733 22.8677C19.9134 22.9495 20.0866 22.9495 20.2267 22.8677L26.8233 19.02C27.1233 18.845 27.5 19.0614 27.5 19.4087V23.675C27.5 23.9235 27.7015 24.125 27.95 24.125H28.55C28.7985 24.125 29 23.9235 29 23.675V18.0085C29 17.8484 28.915 17.7004 28.7767 17.6198L20.2267 12.6323ZM14.676 21.5123C14.376 21.3373 13.9993 21.5537 13.9993 21.901V24.3502C13.9993 24.4474 14.0304 24.5424 14.0902 24.619C14.7752 25.4966 15.6477 26.211 16.6446 26.7094C17.6861 27.2302 18.8348 27.5009 19.9992 27.5C21.1639 27.501 22.3127 27.2303 23.3544 26.7096C24.3514 26.2111 25.2239 25.4967 25.909 24.619C25.9688 24.5424 26 24.4474 26 24.3502V21.9017C26 21.5544 25.6232 21.338 25.3232 21.5131L20.2268 24.4862C20.0866 24.568 19.9134 24.568 19.7732 24.4862L14.676 21.5123Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Training</span>
+</li>
+
+<li class="item N">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.5 20C12.5 20.221 12.5878 20.433 12.7441 20.5893C12.9004 20.7455 13.1123 20.8333 13.3333 20.8333H18.3333C18.5543 20.8333 18.7663 20.7455 18.9226 20.5893C19.0789 20.433 19.1667 20.221 19.1667 20V13.3333C19.1667 13.1123 19.0789 12.9004 18.9226 12.7441C18.7663 12.5878 18.5543 12.5 18.3333 12.5H13.3333C13.1123 12.5 12.9004 12.5878 12.7441 12.7441C12.5878 12.9004 12.5 13.1123 12.5 13.3333V20ZM12.5 26.6667C12.5 26.8877 12.5878 27.0996 12.7441 27.2559C12.9004 27.4122 13.1123 27.5 13.3333 27.5H18.3333C18.5543 27.5 18.7663 27.4122 18.9226 27.2559C19.0789 27.0996 19.1667 26.8877 19.1667 26.6667V23.3333C19.1667 23.1123 19.0789 22.9004 18.9226 22.7441C18.7663 22.5878 18.5543 22.5 18.3333 22.5H13.3333C13.1123 22.5 12.9004 22.5878 12.7441 22.7441C12.5878 22.9004 12.5 23.1123 12.5 23.3333V26.6667ZM20.8333 26.6667C20.8333 26.8877 20.9211 27.0996 21.0774 27.2559C21.2337 27.4122 21.4457 27.5 21.6667 27.5H26.6667C26.8877 27.5 27.0996 27.4122 27.2559 27.2559C27.4122 27.0996 27.5 26.8877 27.5 26.6667V20C27.5 19.779 27.4122 19.567 27.2559 19.4107C27.0996 19.2545 26.8877 19.1667 26.6667 19.1667H21.6667C21.4457 19.1667 21.2337 19.2545 21.0774 19.4107C20.9211 19.567 20.8333 19.779 20.8333 20V26.6667ZM21.6667 12.5C21.4457 12.5 21.2337 12.5878 21.0774 12.7441C20.9211 12.9004 20.8333 13.1123 20.8333 13.3333V16.6667C20.8333 16.8877 20.9211 17.0996 21.0774 17.2559C21.2337 17.4122 21.4457 17.5 21.6667 17.5H26.6667C26.8877 17.5 27.0996 17.4122 27.2559 17.2559C27.4122 17.0996 27.5 16.8877 27.5 16.6667V13.3333C27.5 13.1123 27.4122 12.9004 27.2559 12.7441C27.0996 12.5878 26.8877 12.5 26.6667 12.5H21.6667Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Dashboard</span>
+</li>
+
+<li class="item N">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26 14H14C13.175 14 12.5075 14.675 12.5075 15.5L12.5 24.5C12.5 25.325 13.175 26 14 26H26C26.825 26 27.5 25.325 27.5 24.5V15.5C27.5 14.675 26.825 14 26 14ZM25.7 17.1875L20.3975 20.5025C20.1575 20.6525 19.8425 20.6525 19.6025 20.5025L14.3 17.1875C14.2248 17.1453 14.1589 17.0882 14.1064 17.0198C14.0539 16.9514 14.0158 16.8731 13.9944 16.7895C13.9731 16.706 13.9689 16.619 13.9821 16.5337C13.9954 16.4485 14.0258 16.3669 14.0715 16.2937C14.1172 16.2206 14.1772 16.1575 14.248 16.1082C14.3188 16.059 14.3989 16.0246 14.4834 16.0072C14.5678 15.9898 14.655 15.9897 14.7395 16.007C14.824 16.0242 14.9041 16.0584 14.975 16.1075L20 19.25L25.025 16.1075C25.0959 16.0584 25.176 16.0242 25.2605 16.007C25.345 15.9897 25.4322 15.9898 25.5166 16.0072C25.6011 16.0246 25.6812 16.059 25.752 16.1082C25.8228 16.1575 25.8828 16.2206 25.9285 16.2937C25.9742 16.3669 26.0046 16.4485 26.0179 16.5337C26.0311 16.619 26.0269 16.706 26.0056 16.7895C25.9842 16.8731 25.9461 16.9514 25.8936 17.0198C25.8411 17.0882 25.7752 17.1453 25.7 17.1875Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Email</span>
+</li>
+
+<li class="item N">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.2471 13.3178C16.9106 13.2048 17.591 13.2421 18.2382 13.4269C18.8853 13.6118 19.4827 13.9396 19.9864 14.3861L20.0141 14.4108L20.0396 14.3883C20.5203 13.9665 21.0854 13.652 21.6973 13.4659C22.3091 13.2797 22.9536 13.2262 23.5878 13.3088L23.7722 13.3358C24.5716 13.4738 25.3187 13.8254 25.9346 14.3534C26.5504 14.8814 27.012 15.5662 27.2705 16.3351C27.5289 17.104 27.5746 17.9285 27.4027 18.7213C27.2309 19.5141 26.8478 20.2456 26.2941 20.8384L26.1591 20.9771L26.1231 21.0079L20.5381 26.5396C20.4093 26.6672 20.2385 26.7437 20.0575 26.755C19.8765 26.7663 19.6976 26.7116 19.5538 26.6011L19.4834 26.5396L13.8661 20.9756C13.2711 20.3966 12.8479 19.6642 12.6434 18.8595C12.4389 18.0548 12.4612 17.2092 12.7077 16.4164C12.9542 15.6236 13.4153 14.9144 14.04 14.3675C14.6647 13.8206 15.4286 13.4573 16.2471 13.3178Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Favourites</span>
+</li>
+
+<li class="item N">
+<div class="icon">
+<img class="square" src="square.svg">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.5087 20.0005C25.5087 19.8231 25.501 19.6534 25.4856 19.476L26.9203 18.3884C27.2288 18.157 27.3136 17.7251 27.1208 17.3857L25.6784 14.8942C25.5859 14.7309 25.4363 14.6074 25.2584 14.5476C25.0804 14.4878 24.8866 14.4959 24.7142 14.5703L23.0558 15.2722C22.7704 15.0717 22.4696 14.8942 22.1534 14.7477L21.9297 12.9659C21.8834 12.5802 21.5517 12.2871 21.166 12.2871H18.2889C17.8955 12.2871 17.5639 12.5802 17.5176 12.9659L17.2939 14.7477C16.9777 14.8942 16.6768 15.0717 16.3914 15.2722L14.733 14.5703C14.3782 14.416 13.9617 14.5549 13.7689 14.8942L12.3265 17.3934C12.1336 17.7328 12.2185 18.157 12.527 18.3961L13.9617 19.4837C13.9297 19.8301 13.9297 20.1787 13.9617 20.5251L12.527 21.6126C12.2185 21.8441 12.1336 22.276 12.3265 22.6154L13.7689 25.1068C13.9617 25.4462 14.3782 25.5851 14.733 25.4308L16.3914 24.7289C16.6768 24.9294 16.9777 25.1068 17.2939 25.2534L17.5176 27.0352C17.5639 27.4209 17.8955 27.714 18.2812 27.714H21.1583C21.544 27.714 21.8757 27.4209 21.922 27.0352L22.1457 25.2534C22.4619 25.1068 22.7627 24.9294 23.0481 24.7289L24.7065 25.4308C25.0613 25.5851 25.4779 25.4462 25.6707 25.1068L27.1131 22.6154C27.3059 22.276 27.2211 21.8518 26.9126 21.6126L25.4779 20.5251C25.501 20.3476 25.5087 20.178 25.5087 20.0005ZM19.7545 22.7002C18.2658 22.7002 17.0548 21.4892 17.0548 20.0005C17.0548 18.5118 18.2658 17.3008 19.7545 17.3008C21.2432 17.3008 22.4542 18.5118 22.4542 20.0005C22.4542 21.4892 21.2432 22.7002 19.7545 22.7002Z" fill="white"/>
+</svg>
+</div>
+<span class="Text">Settings</span>
+</li>
+
+</ul>
+
+<section class="account">
+<div class="info-container">
+<div class="container">
+<div class="glass"></div>
+<img class="profile" src="Amanda.jpg">
+<div class="Active"></div>
+</div>
+<div class="account-info">
+<h3>Amanda Steve</h3>
+<span>amandasteve@gmail.com</span>
+</div>
+</div>
+<div class="settings">
+<div class="circle"></div>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 18.376C15.7455 18.376 16.3503 18.9802 16.3506 19.7256C16.3506 20.4712 15.7456 21.0762 15 21.0762C14.2544 21.0761 13.6504 20.4712 13.6504 19.7256C13.6506 18.9802 14.2546 18.376 15 18.376ZM15 13.6514C15.7456 13.6514 16.3505 14.2554 16.3506 15.001C16.3506 15.7466 15.7456 16.3516 15 16.3516C14.2544 16.3515 13.6504 15.7466 13.6504 15.001C13.6504 14.2554 14.2544 13.6514 15 13.6514ZM15 8.92578C15.7456 8.92578 16.3506 9.53074 16.3506 10.2764C16.3504 11.0219 15.7455 11.626 15 11.626C14.2545 11.6259 13.6506 11.0218 13.6504 10.2764C13.6504 9.53076 14.2544 8.92583 15 8.92578Z" fill="white"/>
+</svg>
+</div>
+</section>
+
+<div class="Cross">
+<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.1574 12.7094C23.2295 12.6374 23.2866 12.552 23.3257 12.4579C23.3647 12.3639 23.3848 12.263 23.3849 12.1612C23.3849 12.0594 23.3649 11.9585 23.326 11.8644C23.2871 11.7703 23.23 11.6848 23.1581 11.6127C23.0861 11.5407 23.0007 11.4835 22.9066 11.4445C22.8125 11.4054 22.7117 11.3853 22.6099 11.3852C22.508 11.3852 22.4072 11.4052 22.3131 11.4441C22.219 11.483 22.1334 11.5401 22.0614 11.612L17.3848 16.2886L12.7095 11.612C12.564 11.4665 12.3666 11.3848 12.1608 11.3848C11.955 11.3848 11.7577 11.4665 11.6121 11.612C11.4666 11.7576 11.3849 11.9549 11.3849 12.1607C11.3849 12.3665 11.4666 12.5639 11.6121 12.7094L16.2888 17.3847L11.6121 22.0599C11.5401 22.132 11.4829 22.2175 11.4439 22.3117C11.4049 22.4058 11.3849 22.5067 11.3849 22.6086C11.3849 22.7105 11.4049 22.8114 11.4439 22.9056C11.4829 22.9997 11.5401 23.0852 11.6121 23.1573C11.7577 23.3028 11.955 23.3846 12.1608 23.3846C12.2627 23.3846 12.3636 23.3645 12.4578 23.3255C12.5519 23.2865 12.6375 23.2293 12.7095 23.1573L17.3848 18.4807L22.0614 23.1573C22.2069 23.3026 22.4042 23.3842 22.6099 23.3841C22.8155 23.384 23.0127 23.3021 23.1581 23.1566C23.3034 23.0111 23.385 22.8138 23.3849 22.6081C23.3847 22.4025 23.3029 22.2053 23.1574 22.0599L18.4808 17.3847L23.1574 12.7094Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="0.4"/>
+</svg>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const Body = document.querySelector(".Body");
+const Ham = document.querySelector(".Ham");
+const Cross = document.querySelector(".Cross");
+const SideNavbar = document.querySelector(".side-navbar");
+const Items = document.querySelectorAll(".item.N");
+const Frames = document.querySelectorAll(".frame.N");
+const FrameSs = document.querySelectorAll(".frame.S");
+const Backs = document.querySelectorAll(".back");
+const AccountSettings = document.querySelector(".account-settings");
+const BackAS = document.querySelector(".Back");
+const Settings = document.querySelector(".account .settings");
+
+//Check if the user uses touchscreen or not
+if ("ontouchstart" in document.documentElement)
+
+{Body.classList.add("touch");Body.classList.remove("mouse");}
+
+else {Body.classList.add("mouse");Body.classList.remove("touch");}
+
+
+//Activate & Deactivate Side Navbar
+Ham.addEventListener("click",() => {
+
+if(SideNavbar.classList.contains("active")){
+
+SideNavbar.classList.remove("active");
+SideNavbar.style.left="-261px";
+
+}else{
+
+SideNavbar.classList.add("active");
+SideNavbar.style.left="-1px";
+
+};
+
+});
+
+Cross.addEventListener("click",() => {
+
+SideNavbar.classList.remove("active");
+SideNavbar.style.left="-261px";
+
+});
+
+
+Frames.forEach(Frame => {
+Frame.addEventListener("click",() => {
+
+Cross.click();
+
+});
+});
+
+
+//Click on each item-btn
+Items.forEach((Item,index) => {
+Item.addEventListener("click",() => {
+
+Items.forEach(Item => {
+Item.classList.remove("active");});
+
+Frames.forEach(Frame => {
+Frame.classList.remove("active");});
+
+Frames[index].classList.add("active");
+
+Item.classList.add("active");
+
+setTimeout(() => {
+SideNavbar.classList.remove("active");
+SideNavbar.style.left="-261px";
+},400);
+
+});});
+
+
+//Open Account Settings
+Settings.addEventListener("click",() => {
+
+Settings.querySelector(".circle").classList.add("active");
+
+setTimeout(() => {
+Settings.querySelector(".circle").classList.remove("active");
+AccountSettings.classList.add("active");
+Frames.forEach(Frame => {Frame.style.overflowY="hidden";});
+},500);
+setTimeout(() => {
+SideNavbar.classList.remove("active");
+SideNavbar.style.left="-261px";
+},800);
+
+});
+
+
+//Close Account Settings
+BackAS.addEventListener("click",() => {
+AccountSettings.classList.remove("active");
+Frames.forEach(Frame => {Frame.style.overflowY="auto";});
+});
+
+
+</script>
+
+<script src="DraggingGlass.js"></script>
+
+</body>
+
+</html>
