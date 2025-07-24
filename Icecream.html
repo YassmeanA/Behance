@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Side Navbar Design - Neu Morphism Effect</title>
+    
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+body {
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#ffffff;
+width:2050px;
+height:1800px;
+overflow: hidden;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Montserrat", sans-serif;
+font-optical-sizing: auto;
+font-weight:weight;
+font-style:normal;
+transition:0.4s;
+font-family: "Montserrat Alternates", serif;
+font-weight: 1000;
+font-style: normal;}
+
+.Body {
+position:absolute;
+top:0;
+width:1900px;
+height:1200px;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.Container {
+position:absolute;
+top:0;
+width:100vw;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:80px;
+list-style:none;
+transform:skew(30deg,-15deg) translateX(200px);}
+
+.screen-container {
+position:relative;
+top:0;
+width:300px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:80px;
+list-style:none;}
+
+.Screen {
+position:relative;
+width:300px;
+height:600px;
+border-radius:30px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+align-items:center;
+box-shadow:-10px 10px 25px rgba(0,0,0,0.1);}
+
+.ContainerX {
+width:100%;
+height:100%;
+top:0;
+position:absolute;
+overflow:hidden;
+display: flex;
+align-items: center;
+justify-content:center;}
+
+.Background{
+position: absolute;
+background:#ffd4e4;
+overflow:hidden;}
+
+img {
+position:absolute;
+left:0;
+top:0;
+object-fit:cover;
+opacity:0;
+transition:0.8s;}
+
+img.Active {
+opacity:1;}
+
+.wrapper{
+position: absolute;
+right:-112.5px;
+width:225px;
+height:225px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+-webkit-mask-image: linear-gradient(to right, black 0%, black 40%, transparent 50%);
+transform:scale(1.2);}
+
+.carousel {
+position: absolute;
+width:200px;
+height:200px;}
+
+.C{
+pointer-events:none;
+position: absolute;
+border-radius:50%;
+width:200px;
+height:200px;
+transform:var(--i1);}
+
+.wrapper section{
+cursor:pointer;
+pointer-events:auto;
+position: absolute;
+top:39px;
+right:0;
+height: 61px;
+width:61px;
+transition: 0.3s ;
+background:var(--i2);
+background-size:cover;
+background-position:center;
+clip-path:path("M35.3044 1.64962C36.5736 0.584621 38.4699 0.747688 39.4964 2.04828C51.3116 17.0188 58.6 35.0584 60.5003 54.0349C60.6654 55.6835 59.4146 57.1181 57.7618 57.2336L13.8689 60.3029C12.2161 60.4185 10.7918 59.1704 10.5774 57.5275C9.47491 49.0819 6.23239 41.0564 1.15863 34.2153C0.171631 32.8845 0.329193 30.9973 1.59842 29.9323L35.3044 1.64962Z");}
+
+.wrapper section.active{
+pointer-events:none;
+top:36px;
+right:-4px;
+transform:scale(1.25);}
+
+.Title1 {
+width:100%;
+font-size:1.5rem;
+font-weight:1000;
+color:#ff3884;
+text-shadow:1px 2px 3px rgba(0,0,0,0.1);}
+
+.Title2 {
+width:100%;
+font-size:1.5rem;
+font-weight:1000;
+color:#ff3884;
+text-shadow:1px 2px 3px rgba(0,0,0,0.1);}
+
+.W{
+position:fixed;
+top:0;
+left:0;
+height:100%;
+width:100%;}
+
+.Background {
+left:0;
+top:0;
+width:100%;
+height:100%;}
+
+img {
+width:100%;
+height:70%;
+-webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, transparent 90%);}
+
+.Title {
+width:200px;
+position:absolute;
+top:55%;
+left: 0;
+margin:25px;
+--i1:55%;}
+
+.text {
+width:50%;
+position:absolute;
+top:calc(55% + 90px);
+left:0;
+margin:25px;
+font-size:1rem;
+font-weight:400;
+--i2:calc(55% + 90px);}
+
+.wrapper{
+top:55%;}
+
+</style>
+
+<body>
+
+<div class="Body">
+
+<ul class="Container">
+
+    
+<ul class="screen-container" style="top:-100px;">
+
+    <li class="Screen">
+      
+     
+        <div class="ContainerX">
+    
+            <div class="Background" style="background:#d3ffc2;">
+            
+            <img src="Icecream/Icecream7.jpg" loading="lazy" alt="" class="Active">
+            
+            </div>
+            
+            
+            <div class="Title">
+                <h2 class="Title1" style="color:#61a13b;">Pistachio</h2>
+                <h2 class="Title2" style="color:#61a13b;">Ice Cream</h2>
+            </div>
+                
+            <span class="text">Pistachio ice cream garnished with pistachio and fresh mint leaves.</span>
+                
+            
+            <div class="W"></div>
+            
+            <div class="wrapper">
+            <div class="carousel" style="transform:rotate(60deg);">
+            <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(180deg);"><section  style="--i2:url('Icecream/img5.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(90deg);"><section class="active" style="--i2:url('Icecream/img7.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+            </div>
+            </div>
+            
+            </div>
+            
+           
+    
+    </li>
+    <li class="Screen">
+    
+        <div class="ContainerX">
+    
+            <div class="Background" style="background:#fffef2;">
+            
+            <img src="Icecream/Icecream5.jpg" loading="lazy" alt="" class="Active">
+            
+            </div>
+            
+            
+            <div class="Title">
+                <h2 class="Title1" style="color:#a1a08c;">Vanilla</h2>
+                <h2 class="Title2" style="color:#a1a08c;">Ice Cream</h2>
+            </div>
+                
+            <span class="text">Vanilla ice cream topped with fresh mint leaves.</span>
+                
+            
+            <div class="W"></div>
+            
+            <div class="wrapper">
+            <div class="carousel" style="transform:rotate(330deg);">
+            <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(180deg);"><section class="active" style="--i2:url('Icecream/img5.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+            </div>
+            </div>
+            
+            </div>
+            
+      
+    </li>
+    <li class="Screen">
+         
+    
+        <div class="ContainerX">
+    
+            <div class="Background" style="background:#8ceeff;">
+            
+            <img src="Icecream/Icecream4.jpg" loading="lazy" alt="" class="Active">
+            
+            </div>
+            
+            
+            <div class="Title">
+                <h2 class="Title1" style="color:#00c3e6;">Blueberry</h2>
+                <h2 class="Title2" style="color:#00c3e6;">Ice Cream</h2>
+            </div>
+                
+            <span class="text">Blueberry ice cream infused with fresh blueberries and topped with mint leaves.</span>
+                
+            
+            <div class="W"></div>
+            
+            <div class="wrapper">
+            <div class="carousel" style="transform:rotate(150deg);">
+            <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(0deg);"><section class="active" style="--i2:url('Icecream/img4.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+            </div>
+            </div>
+            
+            </div>
+            
+    
+    </li>
+        
+    </ul>
+
+<ul class="screen-container" style="top:-200px;">
+
+<li class="Screen">
+
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#ffd4e4;">
+        
+        <img src="Icecream/Icecream1.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#ff3884;">Strawberry</h2>
+            <h2 class="Title2" style="color:#ff3884;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Strawberry ice cream mixed with small pieces of fresh strawberries</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(200deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section class="active" style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+
+</li>
+
+
+<li class="Screen">
+
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#baffe9;">
+        
+        <img src="Icecream/Icecream2.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#03fcad;">Mint</h2>
+            <h2 class="Title2" style="color:#03fcad;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Mint ice cream topped with fresh mint leaves and chocolate chips.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(250deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section class="active" style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+</li>
+<li class="Screen">
+
+ 
+  
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#fae7a7;">
+        
+        <img src="Icecream/Icecream8.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#d9a600;">Peanut Butter</h2>
+            <h2 class="Title2" style="color:#d9a600;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Peanut Butter ice cream topped with peanut butter sauce.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(100deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section  style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section class="active" style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+    
+
+</li>
+    
+</ul>
+
+<ul class="screen-container" style="top:-300px;">
+
+<li class="Screen">
+   
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#8ceeff;">
+        
+        <img src="Icecream/Icecream4.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#00c3e6;">Blueberry</h2>
+            <h2 class="Title2" style="color:#00c3e6;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Blueberry ice cream infused with fresh blueberries and topped with mint leaves.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(150deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section class="active" style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+</li>
+<li class="Screen">
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#fcffba;">
+        
+        <img src="Icecream/Icecream3.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#fce303;">Mango</h2>
+            <h2 class="Title2" style="color:#fce303;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Mango ice cream mixed with small cubes of fresh mango.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(290deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section class="active"  style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+</li>
+<li class="Screen">
+  
+  
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#ffd4e4;">
+        
+        <img src="Icecream/Icecream1.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#ff3884;">Strawberry</h2>
+            <h2 class="Title2" style="color:#ff3884;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Strawberry ice cream mixed with small pieces of fresh strawberries</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(200deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section class="active" style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+
+</li>
+    
+
+<li class="Screen">
+      
+    
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#ab816a;">
+        
+        <img src="Icecream/Icecream6.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#703616;">Chocolate</h2>
+            <h2 class="Title2" style="color:#703616;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Chocolate ice cream garnished with chocolate sauce.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(20deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section class="active" style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+   
+
+</li>
+
+
+</ul>
+
+<ul class="screen-container" style="top:-400px;">
+
+<li class="Screen">
+  
+ 
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#d3ffc2;">
+        
+        <img src="Icecream/Icecream7.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#61a13b;">Pistachio</h2>
+            <h2 class="Title2" style="color:#61a13b;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Pistachio ice cream garnished with pistachio and fresh mint leaves.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(60deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section  style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section class="active" style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+       
+
+</li>
+<li class="Screen">
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#fffef2;">
+        
+        <img src="Icecream/Icecream5.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#a1a08c;">Vanilla</h2>
+            <h2 class="Title2" style="color:#a1a08c;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Vanilla ice cream topped with fresh mint leaves.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(330deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section class="active" style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+  
+</li>
+<li class="Screen">
+     
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#8ceeff;">
+        
+        <img src="Icecream/Icecream4.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#00c3e6;">Blueberry</h2>
+            <h2 class="Title2" style="color:#00c3e6;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Blueberry ice cream infused with fresh blueberries and topped with mint leaves.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(150deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section class="active" style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+</li>
+    
+</ul>
+
+
+<ul class="screen-container" style="top:-500px;">
+
+<li class="Screen">
+    
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#fcffba;">
+        
+        <img src="Icecream/Icecream3.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#fce303;">Mango</h2>
+            <h2 class="Title2" style="color:#fce303;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Mango ice cream mixed with small cubes of fresh mango.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(290deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section class="active"  style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+
+
+</li>
+<li class="Screen">
+
+  
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#ab816a;">
+        
+        <img src="Icecream/Icecream6.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#703616;">Chocolate</h2>
+            <h2 class="Title2" style="color:#703616;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Chocolate ice cream garnished with chocolate sauce.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(20deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section class="active" style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+    
+
+</li> 
+<li class="Screen">
+
+    
+ 
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#d3ffc2;">
+        
+        <img src="Icecream/Icecream7.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#61a13b;">Pistachio</h2>
+            <h2 class="Title2" style="color:#61a13b;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Pistachio ice cream garnished with pistachio and fresh mint leaves.</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(60deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section  style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section class="active" style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+        
+       
+</li> 
+</ul>
+
+   
+<ul class="screen-container" style="top:-600px;">
+
+    <li class="Screen">
+      
+     
+
+    <div class="ContainerX">
+
+        <div class="Background" style="background:#ffd4e4;">
+        
+        <img src="Icecream/Icecream1.jpg" loading="lazy" alt="" class="Active">
+        
+        </div>
+        
+        
+        <div class="Title">
+            <h2 class="Title1" style="color:#ff3884;">Strawberry</h2>
+            <h2 class="Title2" style="color:#ff3884;">Ice Cream</h2>
+        </div>
+            
+        <span class="text">Strawberry ice cream mixed with small pieces of fresh strawberries</span>
+            
+        
+        <div class="W"></div>
+        
+        <div class="wrapper">
+        <div class="carousel" style="transform:rotate(200deg);">
+        <div class="C" style="--i1:rotate(-45deg);"><section class="active" style="--i2:url('Icecream/img1.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+        <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+        </div>
+        </div>
+        
+        </div>
+       
+    
+    </li>
+    <li class="Screen">
+    
+  
+        <div class="ContainerX">
+
+            <div class="Background" style="background:#fae7a7;">
+            
+            <img src="Icecream/Icecream8.jpg" loading="lazy" alt="" class="Active">
+            
+            </div>
+            
+            
+            <div class="Title">
+                <h2 class="Title1" style="color:#d9a600;">Peanut Butter</h2>
+                <h2 class="Title2" style="color:#d9a600;">Ice Cream</h2>
+            </div>
+                
+            <span class="text">Peanut Butter ice cream topped with peanut butter sauce.</span>
+                
+            
+            <div class="W"></div>
+            
+            <div class="wrapper">
+            <div class="carousel" style="transform:rotate(100deg);">
+            <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-90deg);"><section style="--i2:url('Icecream/img2.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(0deg);"><section  style="--i2:url('Icecream/img4.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(180deg);"><section  style="--i2:url('Icecream/img5.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(45deg);"><section class="active" style="--i2:url('Icecream/img8.jpg');"></section></div>
+            </div>
+            </div>
+            
+            </div>
+            
+        
+    
+    </li>
+    <li class="Screen">
+         
+    
+        <div class="ContainerX">
+
+            <div class="Background" style="background:#baffe9;">
+            
+            <img src="Icecream/Icecream2.jpg" loading="lazy" alt="" class="Active">
+            
+            </div>
+            
+            
+            <div class="Title">
+                <h2 class="Title1" style="color:#03fcad;">Mint</h2>
+                <h2 class="Title2" style="color:#03fcad;">Ice Cream</h2>
+            </div>
+                
+            <span class="text">Mint ice cream topped with fresh mint leaves and chocolate chips.</span>
+                
+            
+            <div class="W"></div>
+            
+            <div class="wrapper">
+            <div class="carousel" style="transform:rotate(250deg);">
+            <div class="C" style="--i1:rotate(-45deg);"><section style="--i2:url('Icecream/img1.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-90deg);"><section class="active" style="--i2:url('Icecream/img2.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(-135deg);"><section style="--i2:url('Icecream/img3.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(0deg);"><section style="--i2:url('Icecream/img4.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(180deg);"><section style="--i2:url('Icecream/img5.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(135deg);"><section style="--i2:url('Icecream/img6.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(90deg);"><section style="--i2:url('Icecream/img7.jpg');"></section></div>
+            <div class="C" style="--i1:rotate(45deg);"><section style="--i2:url('Icecream/img8.jpg');"></section></div>
+            </div>
+            </div>
+            
+            </div>
+            
+      
+    
+    </li>
+        
+    </ul>
+
+
+</ul>
+
+
+</div>
+
+</body>
+
+</html>
