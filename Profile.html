@@ -218,12 +218,14 @@ display: flex;
 align-items: center;
 justify-content: center;}
 
-.card .img img {
+.card img {
+position:absolute;
+    top:21.5px;
 width:55px;
 height:55px;
 object-fit:cover;
 border-radius:27.5px;
-border:0px solid #fff;
+border:2px solid #fff;
 pointer-events: none;}
 
 .card h2 {
@@ -353,7 +355,8 @@ opacity:1;}
         <ul class="carousel">
         
         <li class="card">
-        <div class="img"><img src="Profiles/person1.jpg" loading="lazy" alt="" draggable="false"></div>
+        <div class="img"></div>
+        <img src="Profiles/person1.jpg" loading="lazy" alt="" draggable="false">
         
         <section class="name">
         <h2>Mark E.</h2>
@@ -369,7 +372,8 @@ opacity:1;}
         </li>
         
         <li class="card">
-        <div class="img"><img src="Profiles/person2.jpg" loading="lazy" alt="" draggable="false"></div>               
+        <div class="img"></div>  
+            <img src="Profiles/person2.jpg" loading="lazy" alt="" draggable="false">             
         
         <section class="name">
         <h2>Kevin P.</h2>
