@@ -202,42 +202,52 @@ width:100px;
 background:#fff;
 flex-direction:column;
 border-radius:12px;
-box-shadow:0 5px 8px rgba(0, 0, 0, 0.06);}
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow:0 5px 8px rgba(0, 0, 0, 0.2);}
 
 .card .img {
+position: absolute;
+top:30px;
 background:linear-gradient(to bottom right,#FF0A6C,#5C27FE);
-width:63px;
-height:63px;
-border-radius:31.5px;}
+width:58px;
+height:58px;
+border-radius:50%;
+display: flex;
+align-items: center;
+justify-content: center;
+transform: translateY(-10px);}
 
 .card .img img {
-width:60px;
-height:60px;
+width:55px;
+height:55px;
 object-fit:cover;
-border-radius:30px;
+border-radius:50%;
 border:2px solid #fff;
 pointer-events: none;}
 
 .card h2 {
 font-weight:500;
 font-size:0.55rem;
-padding:10px 0px 8px 0px;
 color:black;
 font-weight:bold;}
 
 .card span {
+position: absolute;
+top:110px;
 color:#6a6d78;
-font-size:0.4rem;
-transform: translateY(-3px);}
+font-size:0.4rem;}
 
 .card .name {
-padding:5px 0 0 0;
-column-gap:5px;
+position: absolute;
+top:91px;
+column-gap:3px;
 align-items:center;
 display:flex;}
 
 .name svg {
-    transform: scale(0.75);}
+    transform: scale(0.65);}
 
 .indicator{
 position:absolute;
