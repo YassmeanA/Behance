@@ -208,7 +208,7 @@ height:360px;
 display:flex;
 align-items: center;
 justify-content:center;
-transform: translate(-100px,50px);}
+transform:scale(1.5) translate(-60px,100px);}
 
 .MockUp img{
 position:absolute;
@@ -331,6 +331,7 @@ height: 20px;
 border-radius: 10px;
 background: black;
 color:white;
+border:none;
 font-weight:800;
 font-size:0.3rem;
 box-shadow:-3px 3px 6px rgba(0,0,0,0.2);}
@@ -346,8 +347,17 @@ width:500px;
 height: 500px;
 row-gap: 25px;
 column-gap:0;
-transform:scale(0.45)translate(320px,-500px) rotate(-59.4deg) skewY(29deg);
+transform:scale(0.6)translate(780px,-300px) rotate(-59.4deg) skewY(29deg);
 transform-origin:center;}
+
+
+.Body {
+width: 100vw;
+height: 100vh;
+position: fixed;
+top:0;
+transform: scale(1.5);
+}
 
 </style>
 
@@ -355,6 +365,7 @@ transform-origin:center;}
 
 <body>
 
+    <div class="Body">
 
 <div class="MockUp">
     <div class="screen" style="box-shadow: -15px 15px 20px rgba(0,0,0,0.5);"></div>
@@ -629,7 +640,7 @@ transform-origin:center;}
     
     </ul>
 
-
+</div>
 
 </body>
 
